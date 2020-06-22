@@ -1,14 +1,17 @@
 FROM node:12
 #Proje nodejs 12 ile çalışması için 
-WORKDIR /home/node/app
+WORKDIR /usr/src/app
 #proje yolu belirlenir
-COPY nodejs-api /home/node/app
+COPY nodejs-api /usr/src/app
 # Docker içine kopyalanır
-RUN npm install  
+ENV PORT 8080
+ENV HOST 0.0.0.0
+RUN npm install --only=production 
+COPY . .
 # Docker imajı proje halindeyken çalıştırır
-CMD npm run start 
+CMD npm run build 
 #  Container çalıştırılırken CMD çalışır.
-EXPOSE 3000
+ 
 #Image iinden projenin çalışacağı port tanımlanır.
 #docker run ile eklenen port ile ikinci port EXPOSE ile aynı olmalıdır.
 

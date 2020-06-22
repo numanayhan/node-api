@@ -13,7 +13,7 @@ app.post('/',function(req,res){
         message:"api post çalıştı"
     }))
 })
-app.listen(process.env.PORT || 3000 ,()=>{
+app.listen(process.env.PORT || 8080 ,()=>{
    console.log("app çalıştı");
     
 });
