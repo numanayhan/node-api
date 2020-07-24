@@ -9,9 +9,9 @@ ENV HOST 0.0.0.0
 RUN npm install --only=production 
 COPY . .
 # Docker imajı proje halindeyken çalıştırır
-CMD npm run build 
+CMD ["npm","start"]
 #  Container çalıştırılırken CMD çalışır.
- 
+
 #Image iinden projenin çalışacağı port tanımlanır.
 #docker run ile eklenen port ile ikinci port EXPOSE ile aynı olmalıdır.
 
